@@ -11,6 +11,7 @@
         :description="item.description"
         :url="item.url"
         :imageUrl="item.urlToImage"
+        :date="item.publishedAt"
       />
     </div>
   </div>

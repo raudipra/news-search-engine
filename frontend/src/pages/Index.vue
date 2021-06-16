@@ -50,7 +50,7 @@ export default {
       numPages: 0,
       page: 1,
       pageSize: 10,
-      sortBy: 'popularity',
+      sortBy: 'relevancy',
       newsItems: []
     }
   },
@@ -75,7 +75,6 @@ export default {
           params: this.newsParams
         })
         if (response.status) {
-          console.log(response.data.totalResults)
           this.newsItems = response.data.articles
           this.numPages = Math.ceil(response.data.totalResults / this.pageSize)
           this.loading = false

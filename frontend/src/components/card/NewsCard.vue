@@ -4,6 +4,7 @@
       <q-card-section class="col-8 q-pt-xs">
         <div class="text-overline">{{ source }}</div>
         <div v-on:click="openLink" class="text-h5 cursor-pointer q-hoverable q-mt-sm q-mb-xs">{{ title }}</div>
+        <div class="text-subtitle2">{{ formatDate(date) }}</div>
         <div class="text-caption text-grey">
           {{ description }}
         </div>
@@ -43,11 +44,21 @@ export default {
     imageUrl: {
       type: String,
       default: ''
+    },
+    date: {
+      type: String,
+      default: ''
     }
   },
   methods: {
     openLink () {
       window.open(this.url, '_newtab')
+    },
+    formatDate (date) {
+      if (date) {
+        return date.split('T')[0]
+      }
+      return ''
     }
   }
 }
