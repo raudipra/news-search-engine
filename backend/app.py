@@ -2,14 +2,19 @@ import os
 
 import requests
 from flask import Flask, jsonify, request
+from flask_cors import CORS, cross_origin
 
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'dev')
+
+cors = CORS(app)
 app.config['NEWS_API_URL'] = os.environ.get('NEWS_API_URL')
 app.config['NEWS_API_KEY'] = os.environ.get('NEWS_API_KEY')
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/search')
+@cross_origin()
 def search():
     response = {}
     response_code = -1
