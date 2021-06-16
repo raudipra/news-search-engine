@@ -15,10 +15,12 @@
           </template>
         </q-btn>
       </div>
+
       <div class="row">
         <NewsList
           :items="newsItems"/>
       </div>
+
       <div class="row q-pa-lg flex flex-center">
         <q-pagination
           v-model="page"

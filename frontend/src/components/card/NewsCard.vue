@@ -1,9 +1,9 @@
 <template>
-  <q-card v-ripple class="news-card cursor-pointer q-hoverable q-mt-sm q-mb-sm" flat bordered>
+  <q-card v-ripple class="news-card q-mt-sm q-mb-sm" flat bordered>
     <q-card-section horizontal>
       <q-card-section class="col-8 q-pt-xs">
         <div class="text-overline">{{ source }}</div>
-        <div class="text-h5 q-mt-sm q-mb-xs">{{ title }}</div>
+        <div v-on:click="openLink" class="text-h5 cursor-pointer q-hoverable q-mt-sm q-mb-xs">{{ title }}</div>
         <div class="text-caption text-grey">
           {{ description }}
         </div>
@@ -43,6 +43,11 @@ export default {
     imageUrl: {
       type: String,
       default: ''
+    }
+  },
+  methods: {
+    openLink () {
+      window.open(this.url, '_newtab')
     }
   }
 }
