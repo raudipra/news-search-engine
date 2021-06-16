@@ -12,7 +12,7 @@
 
       <q-card-section class="col-4 flex flex-center">
         <img
-          height=200px
+          width=100%
           class="rounded-borders"
           :src="imageUrl"
         />
