@@ -1,7 +1,7 @@
 server {
-    listen 8081 http;
+    listen 8081;
     
-    root /home/alissha/news-search-engine/frontend/public;
+    root /home/alissha/news-search-engine/frontend/dist/spa;
 
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-XSS-Protection "1; mode=block";
@@ -18,7 +18,7 @@ server {
     location = /robots.txt  { access_log off; log_not_found off; }
 
     access_log off;
-    error_log  /var/log/nginx/quasar.myapp.com-error.log error;
+    error_log  /var/log/nginx/quasar.news.com-error.log error;
 
     location ~ /\.(?!well-known).* {
         deny all;
