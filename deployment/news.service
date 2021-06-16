@@ -1,0 +1,14 @@
+[Unit]
+Description=Gunicorn instance to serve news search engine
+After=network.target
+
+[Service]
+User=alissha
+Group=www-data
+WorkingDirectory=/home/alissha/news-search-engine/backend
+Environment="PATH=/home/alissha/venv/news-search-engine/bin"
+EnvironmentFile=/home/alissha/news-search-engine/backend/.flaskenv
+ExecStart=/home/alissha/venv/news-search-engine/bin/gunicorn --workers 3 --bind 0.0.0.0:5000 wsgi:app
+
+[Install]
+WantedBy=multi-user.target
